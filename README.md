@@ -20,6 +20,18 @@ See the table on [infosys](https://infosys.beckhoff.com/english.php?content=../c
 
 ## Code Snippets
 
+> [!TIP]
+> **Choosing the Right Function Block for Modbus RTU**
+>
+> If you're using Modbus RTU over Beckhoff terminals, prefer `ModbusRtuMaster_KL6x22B` — it works with both **KL** and **EL** terminals and uses a standard 22-byte layout (hence the `22B` suffix).  
+>
+> The 22-byte layout is consistent across KL and EL of the RS232 and RS422/RS485 versions, so compatibility is straightforward.  
+> Although you *can* reduce the data size by adjusting the PDOs, there's usually no need — stick with the default 22B unless you have a specific requirement.
+>
+> Other available blocks:
+> - `ModbusRtuMaster_PcCOM` – uses the OS-level serial port
+> - `ModbusRtuMaster_KL6x5B` – older/smaller version
+
 ### ModbusRtuMaster_PcCOM.WriteRegs
 
 ```
